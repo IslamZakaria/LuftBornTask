@@ -1,0 +1,35 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/LuftBornTask.Application.Contracts/LuftBornTask.Application.Contracts.csproj" />
+    <Project Path="src/LuftBornTask.Application/LuftBornTask.Application.csproj" />
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Project Path="src/LuftBornTask.DbMigrator/LuftBornTask.DbMigrator.csproj" />
+    <Project Path="src/LuftBornTask.Domain.Shared/LuftBornTask.Domain.Shared.csproj" />
+    <Project Path="src/LuftBornTask.Domain/LuftBornTask.Domain.csproj" />
+    <Project Path="src/LuftBornTask.EntityFrameworkCore/LuftBornTask.EntityFrameworkCore.csproj" />
+    <Project Path="src/LuftBornTask.HttpApi.Client/LuftBornTask.HttpApi.Client.csproj" />
+    
+    <Project Path="src/LuftBornTask.HttpApi.Host/LuftBornTask.HttpApi.Host.csproj" />
+    <Project Path="src/LuftBornTask.HttpApi/LuftBornTask.HttpApi.csproj" />
+    
+    
+    
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/LuftBornTask.Application.Tests/LuftBornTask.Application.Tests.csproj" />
+    <Project Path="test/LuftBornTask.Domain.Tests/LuftBornTask.Domain.Tests.csproj" />
+    <Project Path="test/LuftBornTask.EntityFrameworkCore.Tests/LuftBornTask.EntityFrameworkCore.Tests.csproj" />
+    <Project Path="test/LuftBornTask.HttpApi.Client.ConsoleTestApp/LuftBornTask.HttpApi.Client.ConsoleTestApp.csproj" />
+    
+    <Project Path="test/LuftBornTask.TestBase/LuftBornTask.TestBase.csproj" />
+    
+  </Folder>
+</Solution>
