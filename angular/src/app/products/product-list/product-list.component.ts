@@ -13,7 +13,8 @@ import { SharedModule } from '../../shared/shared.module';
     standalone: true,
     imports: [CommonModule, SharedModule, NgbDropdownModule],
     providers: [ListService],
-    templateUrl: './product-list.component.html'
+    templateUrl: './product-list.component.html',
+    styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent implements OnInit {
     product = { items: [], totalCount: 0 } as PagedResultDto<ProductDto>;
