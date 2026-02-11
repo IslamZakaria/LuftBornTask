@@ -7,13 +7,13 @@ namespace LuftBornTask.Products
     {
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         protected Product()
         {
         }
 
-        public Product(Guid id, string name, decimal price, string description) : base(id)
+        public Product(Guid id, string name, decimal price, string? description) : base(id)
         {
             SetName(name);
             SetPrice(price);
@@ -45,7 +45,7 @@ namespace LuftBornTask.Products
             Price = price;
         }
 
-        public void SetDescription(string description)
+        public void SetDescription(string? description)
         {
             if (description != null && description.Length > 500)
             {
