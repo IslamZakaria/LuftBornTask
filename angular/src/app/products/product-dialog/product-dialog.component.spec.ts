@@ -5,21 +5,30 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { of } from 'rxjs';
 
+import { OAuthService } from 'angular-oauth2-oidc';
+import { VALIDATION_BLUEPRINTS } from '@ngx-validate/core';
+
+import { OAuthModule } from 'angular-oauth2-oidc';
+
 describe('ProductDialogComponent', () => {
     let component: ProductDialogComponent;
     let fixture: ComponentFixture<ProductDialogComponent>;
     let mockProductService: jasmine.SpyObj<ProductService>;
     let mockActiveModal: jasmine.SpyObj<NgbActiveModal>;
+    let mockOAuthService: jasmine.SpyObj<OAuthService>;
 
     beforeEach(async () => {
         mockProductService = jasmine.createSpyObj('ProductService', ['get', 'create', 'update']);
         mockActiveModal = jasmine.createSpyObj('NgbActiveModal', ['close', 'dismiss']);
+        mockOAuthService = jasmine.createSpyObj('OAuthService', ['hasValidAccessToken']);
 
         await TestBed.configureTestingModule({
-            imports: [ProductDialogComponent, ReactiveFormsModule],
+            imports: [ProductDialogComponent, ReactiveFormsModule, OAuthModule.forRoot()],
             providers: [
                 { provide: ProductService, useValue: mockProductService },
-                { provide: NgbActiveModal, useValue: mockActiveModal }
+                { provide: NgbActiveModal, useValue: mockActiveModal },
+                { provide: OAuthService, useValue: mockOAuthService },
+                { provide: VALIDATION_BLUEPRINTS, useValue: {} }
             ]
         }).compileComponents();
 
