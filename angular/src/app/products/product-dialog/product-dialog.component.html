@@ -1,0 +1,39 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+  <div class="modal-header">
+    <h5 class="modal-title">{{ (id ? 'AbpUi::Edit' : 'AbpUi::NewProduct') | abpLocalization }}</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+  </div>
+  <div class="modal-body">
+    <div class="mb-3">
+      <label for="name" class="form-label">{{ '::Name' | abpLocalization }}</label>
+      <input type="text" id="name" class="form-control" formControlName="name" />
+      <div *ngIf="form.get('name').invalid && (form.get('name').dirty || form.get('name').touched)" class="text-danger">
+        <small *ngIf="form.get('name').errors?.required">{{ 'AbpValidation::ThisFieldIsRequired' | abpLocalization }}</small>
+        <small *ngIf="form.get('name').errors?.maxlength">Name cannot exceed 128 characters.</small>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">{{ '::Price' | abpLocalization }}</label>
+      <input type="number" id="price" class="form-control" formControlName="price" />
+      <div *ngIf="form.get('price').invalid && (form.get('price').dirty || form.get('price').touched)" class="text-danger">
+        <small *ngIf="form.get('price').errors?.required">{{ 'AbpValidation::ThisFieldIsRequired' | abpLocalization }}</small>
+        <small *ngIf="form.get('price').errors?.min">Price cannot be negative.</small>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">{{ '::Description' | abpLocalization }}</label>
+      <textarea id="description" class="form-control" formControlName="description"></textarea>
+      <div *ngIf="form.get('description').invalid && (form.get('description').dirty || form.get('description').touched)" class="text-danger">
+         <small *ngIf="form.get('description').errors?.maxlength">Description cannot exceed 500 characters.</small>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="close()">{{ 'AbpUi::Cancel' | abpLocalization }}</button>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid || isSaving">
+      <i class="fa fa-check me-1"></i> {{ 'AbpUi::Save' | abpLocalization }}
+    </button>
+  </div>
+</form>
