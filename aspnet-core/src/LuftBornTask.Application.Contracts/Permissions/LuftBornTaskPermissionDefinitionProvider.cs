@@ -8,9 +8,10 @@ public class LuftBornTaskPermissionDefinitionProvider : PermissionDefinitionProv
 {
     public override void Define(IPermissionDefinitionContext context)
     {
-        var myGroup = context.AddGroup(LuftBornTaskPermissions.GroupName);
-        //Define your own permissions here. Example:
-        //myGroup.AddPermission(LuftBornTaskPermissions.MyPermission1, L("Permission:MyPermission1"));
+        var productsPermission = myGroup.AddPermission(LuftBornTaskPermissions.Products.Default, L("Permission:Products"));
+        productsPermission.AddChild(LuftBornTaskPermissions.Products.Create, L("Permission:Products.Create"));
+        productsPermission.AddChild(LuftBornTaskPermissions.Products.Edit, L("Permission:Products.Edit"));
+        productsPermission.AddChild(LuftBornTaskPermissions.Products.Delete, L("Permission:Products.Delete"));
     }
 
     private static LocalizableString L(string name)
