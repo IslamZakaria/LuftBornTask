@@ -10,12 +10,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\LuftBornTask.EntityFrameworkCore\LuftBornTask.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\LuftBornTask.Application.Tests\LuftBornTask.Application.Tests.csproj" />
+    <ProjectReference Include="..\LuftBornTask.TestBase\LuftBornTask.TestBase.csproj" />
     <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="10.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
+
   </ItemGroup>
 
 </Project>
