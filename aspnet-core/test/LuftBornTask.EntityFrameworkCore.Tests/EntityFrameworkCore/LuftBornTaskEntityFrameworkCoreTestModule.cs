@@ -11,11 +11,12 @@ using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.Uow;
+using LuftBornTask;
 
 namespace LuftBornTask.EntityFrameworkCore;
 
 [DependsOn(
-    typeof(LuftBornTaskApplicationTestModule),
+    typeof(LuftBornTaskTestBaseModule),
     typeof(LuftBornTaskEntityFrameworkCoreModule),
     typeof(AbpEntityFrameworkCoreSqliteModule)
     )]
