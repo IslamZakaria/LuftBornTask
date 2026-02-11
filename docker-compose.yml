@@ -1,0 +1,78 @@
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: luftborn-postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: myPassword
+      POSTGRES_DB: LuftBornTask
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U root -d LuftBornTask"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - luftborn-network
+
+  # ASP.NET Core Backend (API)
+  backend:
+    build:
+      context: ./aspnet-core
+      dockerfile: Dockerfile
+    container_name: luftborn-backend
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:5000
+      ConnectionStrings__Default: "Host=postgres;Port=5432;Database=LuftBornTask;User ID=root;Password=myPassword;"
+      App__SelfUrl: "http://localhost:5000"
+      App__ClientUrl: "http://localhost:80"
+      App__CorsOrigins: "http://localhost:80"
+      AuthServer__Authority: "http://localhost:5000"
+      AuthServer__RequireHttpsMetadata: "false"
+    ports:
+      - "5000:5000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    networks:
+      - luftborn-network
+
+  # Angular Frontend
+  frontend:
+    build:
+      context: ./angular
+      dockerfile: Dockerfile
+    container_name: luftborn-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    environment:
+      API_URL: "http://backend:5000"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    networks:
+      - luftborn-network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  luftborn-network:
+    driver: bridge

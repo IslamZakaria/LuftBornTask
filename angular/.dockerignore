@@ -1,0 +1,12 @@
+node_modules
+npm-debug.log
+dist
+.git
+.gitignore
+README.md
+.editorconfig
+.eslintrc.json
+.prettierrc
+karma.conf.js
+tsconfig.spec.json
+src/test.ts
