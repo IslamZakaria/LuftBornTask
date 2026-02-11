@@ -11,7 +11,8 @@ import { SharedModule } from '../../shared/shared.module';
     selector: 'app-product-dialog',
     standalone: true,
     imports: [CommonModule, ReactiveFormsModule, SharedModule],
-    templateUrl: './product-dialog.component.html'
+    templateUrl: './product-dialog.component.html',
+    styleUrl: './product-dialog.component.scss'
 })
 export class ProductDialogComponent implements OnInit {
     @Input() id?: string;
