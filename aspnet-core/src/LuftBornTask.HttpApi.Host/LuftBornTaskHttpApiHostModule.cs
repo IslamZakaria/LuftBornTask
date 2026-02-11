@@ -56,6 +56,14 @@ public class LuftBornTaskHttpApiHostModule : AbpModule
                 options.UseAspNetCore();
             });
         });
+
+        if (context.Services.GetHostingEnvironment().IsDevelopment())
+        {
+            PreConfigure<OpenIddictServerBuilder>(builder =>
+            {
+                builder.UseAspNetCore().DisableTransportSecurityRequirement();
+            });
+        }
     }
 
     public override void ConfigureServices(ServiceConfigurationContext context)
