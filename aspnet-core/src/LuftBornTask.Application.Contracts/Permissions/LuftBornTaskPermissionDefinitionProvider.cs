@@ -8,6 +8,7 @@ public class LuftBornTaskPermissionDefinitionProvider : PermissionDefinitionProv
 {
     public override void Define(IPermissionDefinitionContext context)
     {
+        var myGroup = context.AddGroup(LuftBornTaskPermissions.GroupName);
         var productsPermission = myGroup.AddPermission(LuftBornTaskPermissions.Products.Default, L("Permission:Products"));
         productsPermission.AddChild(LuftBornTaskPermissions.Products.Create, L("Permission:Products.Create"));
         productsPermission.AddChild(LuftBornTaskPermissions.Products.Edit, L("Permission:Products.Edit"));
