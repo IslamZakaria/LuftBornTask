@@ -221,7 +221,7 @@ public class LuftBornTaskHttpApiHostModule : AbpModule
 
         app.UseAuditing();
         app.UseAbpSerilogEnrichers();
-        app.MapHealthChecks("/health");
+        app.UseHealthChecks("/health");
         app.UseConfiguredEndpoints();
     }
 }
