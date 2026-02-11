@@ -21,6 +21,7 @@ function configureRoutes(routesService: RoutesService) {
         iconClass: 'fas fa-box',
         order: 2,
         layout: eLayoutType.application,
+        requiredPolicy: 'LuftBornTask.Products',
       },
     ]);
   };
