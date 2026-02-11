@@ -19,12 +19,6 @@ namespace LuftBornTask.Products
         public ProductAppService(IRepository<Product, Guid> productRepository)
         {
             _productRepository = productRepository;
-            
-            GetPolicyName = LuftBornTaskPermissions.Products.Default;
-            GetListPolicyName = LuftBornTaskPermissions.Products.Default;
-            CreatePolicyName = LuftBornTaskPermissions.Products.Create;
-            UpdatePolicyName = LuftBornTaskPermissions.Products.Edit;
-            DeletePolicyName = LuftBornTaskPermissions.Products.Delete;
         }
 
         public async Task<ProductDto> GetAsync(Guid id)
@@ -73,9 +67,9 @@ namespace LuftBornTask.Products
 
             var product = await _productRepository.GetAsync(id);
 
-            product.Name = input.Name;
-            product.Price = input.Price;
-            product.Description = input.Description;
+            product.SetName(input.Name);
+            product.SetPrice(input.Price);
+            product.SetDescription(input.Description);
 
             await _productRepository.UpdateAsync(product);
 
