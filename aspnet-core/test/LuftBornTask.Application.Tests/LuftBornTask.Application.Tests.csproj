@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\LuftBornTask.Application\LuftBornTask.Application.csproj" />
     <ProjectReference Include="..\LuftBornTask.Domain.Tests\LuftBornTask.Domain.Tests.csproj" />
+    <ProjectReference Include="..\LuftBornTask.EntityFrameworkCore.Tests\LuftBornTask.EntityFrameworkCore.Tests.csproj" />
   </ItemGroup>
 
   <ItemGroup>
