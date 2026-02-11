@@ -70,6 +70,7 @@ public class LuftBornTaskHttpApiHostModule : AbpModule
         ConfigureVirtualFileSystem(context);
         ConfigureCors(context, configuration);
         ConfigureSwaggerServices(context, configuration);
+        context.Services.AddHealthChecks();
     }
 
     private void ConfigureAuthentication(ServiceConfigurationContext context)
@@ -220,6 +221,7 @@ public class LuftBornTaskHttpApiHostModule : AbpModule
 
         app.UseAuditing();
         app.UseAbpSerilogEnrichers();
+        app.MapHealthChecks("/health");
         app.UseConfiguredEndpoints();
     }
 }
