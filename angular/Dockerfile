@@ -25,7 +25,7 @@ RUN rm -rf /etc/nginx/conf.d/*
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy built application from build stage (Angular outputs to dist/LuftBornTask)
-COPY --from=build /app/dist/LuftBornTask /usr/share/nginx/html
+COPY --from=build /app/dist/LuftBornTask/browser /usr/share/nginx/html
 
 # Expose port
 EXPOSE 80
