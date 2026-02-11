@@ -51,7 +51,7 @@ public class Product_Tests : LuftBornTaskDomainTestBase<LuftBornTaskDomainTestMo
         // Arrange
         var id = Guid.NewGuid();
         var name = "Test Product";
-        var price = 10.5f;
+        var price = 10.5m;
         var description = "Test Description";
 
         // Act
