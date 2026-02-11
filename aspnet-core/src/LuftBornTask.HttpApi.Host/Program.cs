@@ -22,6 +22,7 @@ public class Program
             .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
             .Enrich.FromLogContext()
             .WriteTo.Async(c => c.File("Logs/logs.txt"))
+            .WriteTo.Async(c => c.File(new Serilog.Formatting.Json.JsonFormatter(), "Logs/logs.json"))
             .WriteTo.Async(c => c.Console())
             .CreateLogger();
 

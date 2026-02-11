@@ -193,6 +193,7 @@ public class LuftBornTaskHttpApiHostModule : AbpModule
         }
 
         app.UseCorrelationId();
+        app.UseSerilogRequestLogging();
         app.MapAbpStaticAssets();
         app.UseRouting();
         app.UseCors();
