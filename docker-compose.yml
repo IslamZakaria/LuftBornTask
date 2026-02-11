@@ -44,8 +44,8 @@ services:
       ASPNETCORE_URLS: http://+:5000
       ConnectionStrings__Default: "Host=postgres;Port=5432;Database=LuftBornTask;User ID=root;Password=myPassword;"
       App__SelfUrl: "http://localhost:5000"
-      App__ClientUrl: "http://localhost:80"
-      App__CorsOrigins: "http://localhost:80"
+      App__ClientUrl: "http://localhost"
+      App__CorsOrigins: "http://localhost,http://localhost:80"
       AuthServer__Authority: "http://localhost:5000"
       AuthServer__RequireHttpsMetadata: "false"
     ports:
