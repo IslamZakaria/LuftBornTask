@@ -1,5 +1,4 @@
-import { withHttpErrorConfig } from '@abp/ng.theme.shared';
-import { withValidationBluePrint, provideAbpThemeShared } from '@abp/ng.theme.shared';
+import { withHttpErrorConfig, withValidationBluePrint, provideAbpThemeShared, provideLogo, withEnvironmentOptions } from '@abp/ng.theme.shared';
 
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
@@ -39,6 +38,7 @@ export const appConfig: ApplicationConfig = {
         provideAbpThemeShared(withValidationBluePrint({
             wrongPassword: 'Please choose 1q2w3E*'
         })),
+        provideLogo(withEnvironmentOptions(environment)),
         provideThemeLeptonX(),
         provideSideMenuLayout()
     ],
