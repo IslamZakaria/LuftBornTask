@@ -10,16 +10,16 @@ export const environment = {
     logoUrl: 'assets/images/logo/luftborn.png',
   },
   oAuthConfig: {
-    issuer: 'https://localhost:44350/',
+    issuer: 'http://localhost:5000/',
     redirectUri: baseUrl,
     clientId: 'LuftBornTask_App',
     responseType: 'code',
     scope: 'offline_access LuftBornTask',
-    requireHttps: true
+    requireHttps: false
   },
   apis: {
     default: {
-      url: 'https://localhost:44350',
+      url: 'http://localhost:5000',
       rootNamespace: 'LuftBornTask',
     },
   },
