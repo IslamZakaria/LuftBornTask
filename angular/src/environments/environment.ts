@@ -7,7 +7,7 @@ export const environment = {
   application: {
     baseUrl,
     name: 'LuftBornTask',
-    logoUrl: 'assets/images/logo/luftborn.png',
+    logoUrl: 'assets/images/logo/collapse-icon.svg',
   },
   oAuthConfig: {
     issuer: 'http://localhost:5000/',
