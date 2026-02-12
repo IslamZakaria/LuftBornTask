@@ -99,3 +99,12 @@
 .lpx-sidebar-toggle {
   transition: all 0.3s ease;
 }
+
+/* Fix for sidebar logo when collapsed */
+::ng-deep .lpx-sidebar-collapsed .lpx-brand-logo {
+  background-image: var(--lpx-logo-icon) !important;
+  width: 32px;
+  /* Adjust width if necessary for the icon */
+  background-size: contain;
+  background-position: center;
+}
