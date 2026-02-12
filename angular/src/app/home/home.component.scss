@@ -1,25 +1,124 @@
-/* Styles for the home component */
-.card-bg-image {
-  position: absolute;
-  width: 630px;
-  height: auto;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
-}
-.starting-content {
-  position: relative;
-  z-index: 2;
-}
+// Variables
+$primary-color: #0abbc5; // ABP Default/Brand Color
+$text-dark: #333;
+$text-light: #666;
+$bg-light: #f8f9fa;
+$transition-speed: 0.3s;
 
-@media (min-width: 1199px) {
-  .h-lg-100 {
-    height: 100% !important;
+.landing-page {
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  
+  // Hero Section
+  .hero-section {
+    padding: 6rem 0;
+    
+    h1 {
+      color: $text-dark;
+      letter-spacing: -1px;
+    }
+    
+    h2 {
+      font-weight: 300;
+    }
+    
+    .intro-text {
+      max-width: 800px;
+      margin: 0 auto;
+    }
   }
+
+  // Cards & Sections
+  .card {
+    transition: transform $transition-speed ease, box-shadow $transition-speed ease;
+    
+    &.hover-lift:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+  }
+
+  .tech-card {
+    background: #fff;
+    cursor: default;
+    transition: all $transition-speed ease;
+    
+    &:hover {
+      border-color: $primary-color !important;
+    }
+
+    .icon-wrapper {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  // Animations
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeInUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    from { 
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-down {
+    animation: fadeInDown 0.8s ease-out forwards;
+  }
+
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-150 { animation-delay: 0.15s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-250 { animation-delay: 0.25s; }
+  .delay-300 { animation-delay: 0.3s; }
 }
 
-@media (min-width: 768px) {
-  .h-md-100 {
-    height: 100% !important;
+// Media Queries
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 3rem 0;
+    
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+  
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+    .btn {
+      width: 100%;
+      margin-right: 0 !important;
+    }
   }
 }

@@ -1,6 +1,6 @@
-import {AuthService, LocalizationPipe} from '@abp/ng.core';
+import { AuthService, LocalizationPipe } from '@abp/ng.core';
 import { Component, inject } from '@angular/core';
-import {NgTemplateOutlet} from "@angular/common";
+import { NgTemplateOutlet } from "@angular/common";
 
 @Component({
   selector: 'app-home',
