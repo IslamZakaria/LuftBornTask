@@ -1,10 +1,12 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from '@abp/ng.core';
 
 export const appRoutes: Routes = [
   {
     path: '',
     pathMatch: 'full',
     loadChildren: () => import('./home/home.routes').then(m => m.homeRoutes),
+    canActivate: [AuthGuard],
   },
   {
     path: 'account',
