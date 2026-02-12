@@ -64,6 +64,7 @@ The application is seeded with a default admin user:
 | Field    | Value      |
 |----------|------------|
 | Username | `admin`    |
+| Email    | `admin@abp.io`    |
 | Password | `1q2w3E*`  |
 
 ## 👥 Roles and Permissions
