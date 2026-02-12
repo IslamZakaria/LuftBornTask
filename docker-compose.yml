@@ -40,7 +40,7 @@ services:
       dockerfile: Dockerfile
     container_name: luftborn-backend
     environment:
-      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:5000
       ConnectionStrings__Default: "Host=postgres;Port=5432;Database=LuftBornTask;User ID=root;Password=myPassword;"
       App__SelfUrl: "http://localhost:5000"
