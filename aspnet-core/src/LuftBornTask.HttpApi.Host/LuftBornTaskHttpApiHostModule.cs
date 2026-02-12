@@ -101,6 +101,14 @@ public class LuftBornTaskHttpApiHostModule : AbpModule
                     bundle.AddFiles("/global-styles.css");
                 }
             );
+            
+            options.ScriptBundles.Configure(
+                LeptonXLiteThemeBundles.Scripts.Global,
+                bundle =>
+                {
+                    bundle.AddFiles("/global-scripts.js");
+                }
+            );
         });
     }
 

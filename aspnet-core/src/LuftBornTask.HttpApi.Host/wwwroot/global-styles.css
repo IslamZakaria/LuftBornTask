@@ -1,6 +1,12 @@
 /* Your Global Styles */
 
-:root .lpx-brand-logo {
+:root {
     --lpx-logo: url('/images/logo/expand-icon.svg');
     --lpx-logo-icon: url('/images/logo/collapse-icon.svg');
+}
+
+.lpx-brand-logo {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
