@@ -11,8 +11,18 @@
 }
 
 :root {
-  --lpx-logo: url('/assets/images/logo/logo-light.png');
-  --lpx-logo-icon: url('/assets/images/logo/logo-light-thumbnail.png');
+  --lpx-logo: url('/assets/images/logo/expand-icon.svg');
+  --lpx-logo-icon: url('/assets/images/logo/collapse-icon.svg');
+
+  /* Brand Colors */
+  --lpx-brand: #FF7E31;
+  --lpx-brand-text: #FFFFFF;
+  --lpx-dark-bg: #02071A;
+
+  /* Map to LeptonX Standard Variables */
+  --lpx-primary: var(--lpx-brand);
+  --lpx-content-text: var(--lpx-brand-text);
+  /* careful with this, might be too global */
 }
 
 .donut {
