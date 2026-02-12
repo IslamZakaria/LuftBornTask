@@ -8,6 +8,7 @@
     "Permission:Products": "Product Management",
     "Permission:Products.Create": "Create new product",
     "Permission:Products.Edit": "Edit product",
-    "Permission:Products.Delete": "Delete product"
+    "Permission:Products.Delete": "Delete product",
+    "Menu:Products": "Products"
   }
 }
