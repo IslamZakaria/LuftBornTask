@@ -120,6 +120,9 @@ public class LuftBornTaskHttpApiHostModule : AbpModule
     {
         var hostingEnvironment = context.Services.GetHostingEnvironment();
 
+        // Disabled for Docker compatibility - physical paths don't exist in containers
+        // Only enable this when running from source code locally
+        /*
         if (hostingEnvironment.IsDevelopment())
         {
             Configure<AbpVirtualFileSystemOptions>(options =>
@@ -138,6 +141,7 @@ public class LuftBornTaskHttpApiHostModule : AbpModule
                         $"..{Path.DirectorySeparatorChar}LuftBornTask.Application"));
             });
         }
+        */
     }
 
     private void ConfigureConventionalControllers()
